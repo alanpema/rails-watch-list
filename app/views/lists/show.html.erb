@@ -1,0 +1,22 @@
+<h1><%= @list.name %></h1>
+<p class="btn btn-alert"><%=link_to "add movies", new_list_bookmark_path(@list)%></p>
+<ul>
+<% @list.bookmarks.each do |bookmark| %>
+ <li>Title:  <%= bookmark.movie.title%> </li>
+  comment:  <%= bookmark.comment %>
+<% end %>
+</ul>
+
+
+<h1>Leave a Review:</h1>
+<%= simple_form_for [@list, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<h1>Reviews:</h1>
+<% @list.reviews.each do |review| %>
+  <%= review.comment %> - Rating: <%= review.rating.to_i%>
+<% end %>

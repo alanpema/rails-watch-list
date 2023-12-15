@@ -1,5 +1,6 @@
-<h1>list god</h1>
+<h1 class="text-white">list god</h1>
 <%= simple_form_for [@lists] do |f| %>
   <%= f.input :name %>
-  <%= f.submit "Create new list", class: "btn btn-primary rounded-pill" %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Create new list", class: "btn btn-warning rounded-pill text-white" %>
 <% end %>
